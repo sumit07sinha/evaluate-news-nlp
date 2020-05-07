@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="">
+                Udacity
+            </div>
+            <div class="">
+                Evaluate a News Article with NLP
+            </div>
+        </header>
+
+        <main>
+             <section class="errorSection">
+                    <span class="close_btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <div id="error"></div>
+            </section> 
+            <section>
+                <form class="" onsubmit="return handleSubmit(event)">
+                    <input id="name" type="url" name="test-url" value=""  placeholder="https://www.news-source/a-news-article...">
+                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)">
+                </form>
+            <section>
+
+            <section>
+                <strong>Form Results:</strong>
+                <div id="results">
+                   <h3>Text:</h3>
+                    <div id="text"></div>
+                    <h3>Polarity:</h3>
+                    <div id="polarity"></div>
+                    <h3>Text:</h3>
+                    <div id="subjectivity"></div>
+                    <h3>Text:</h3>
+                    <div id="polarityConfidence"></div>
+                    <h3>Text:</h3>
+                    <div id="subjectivityConfidence"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>This is a footer</p>
+        </footer>
+
+    </body>
+</html>
