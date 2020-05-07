@@ -1,5 +1,5 @@
 require("dotenv").config();
-function validateInputRequest(req, res, next) {
+function inputValidation(req, res, next) {
   if (!req.body.text) {
     // check for input validation
     return res.status(400).json({
@@ -9,7 +9,7 @@ function validateInputRequest(req, res, next) {
   return next();
 }
 
-function PostHandler(req, res, next) {
+function handlePost(req, res, next) {
   var aylien = require("aylien_textapi");
   // Aylien API credentias load app_id and app_key from .env file
   // Please make sure to carate an account in aylian and obtain your own app_id and app_key
@@ -27,5 +27,5 @@ function PostHandler(req, res, next) {
     }
   );
 }
-exports.validateInputRequest = validateInputRequest;
-exports.PostHandler = PostHandler;
+exports.inputValidation = inputValidation;
+exports.handlePost = handlePost;

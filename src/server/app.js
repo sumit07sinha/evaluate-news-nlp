@@ -1,18 +1,16 @@
 var path = require("path");
 var express = require("express");
 var app = express();
-const mockAPIResponse = require("./mockAPI.js");
+const mockAPI = require("./mockAPI");
 var bodyParser = require("body-parser");
-var requestPost = require("./postHandler");
+var postRequest = require("./postHandler");
 var cors = require("cors");
 
 app.use(cors());
-app.use(bodyParser.json()); // to use json
-
-// to use url encoded values
+app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: false,
+    extended: true,
   })
 );
 app.use(express.static("dist"));
@@ -22,12 +20,9 @@ app.get("/", function (req, res) {
 });
 
 app.get("/test", function (req, res) {
-  res.send(mockAPIResponse);
+  res.send(mockAPI);
 });
 // Post
-app.post("/article", requestPost.validateInputRequest, requestPost.PostHandler);
+app.post("/article", postRequest.inputValidation, postRequest.handlePost);
 
-// app.listen(8080, function () {
-//   console.log("Server starts on port 8080");
-// });
 module.exports = app;

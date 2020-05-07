@@ -1,5 +1,4 @@
-import { handleSubmit } from "../client/js/formHandler";
-
+const { handleSubmit } = require("../client/js/formHandler");
 test("It should return true", async () => {
-  expect(handleSubmit()).toBeDefined();
+  expect(typeof handleSubmit).toBe("function");
 });
