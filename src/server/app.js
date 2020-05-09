@@ -16,7 +16,7 @@ app.use(
 app.use(express.static("dist"));
 
 app.get("/", function (req, res) {
-  res.sendFile(path.resolve("dist/index.html"));
+  res.sendStatus(200).sendFile(path.resolve("dist/index.html"));
 });
 
 app.get("/test", function (req, res) {
@@ -25,4 +25,10 @@ app.get("/test", function (req, res) {
 // Post
 app.post("/article", postRequest.inputValidation, postRequest.handlePost);
 
+const port = 5000;
+const server = app.listen(port, listening);
+function listening() {
+  console.log("server running");
+  console.log(`running on localhost: ${port}`);
+}
 module.exports = app;
