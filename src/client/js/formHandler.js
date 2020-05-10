@@ -7,7 +7,7 @@ function handleSubmit(event) {
     console.log("::: FORM INPUT VALID :::");
 
     console.log("BUILDING REQUEST");
-    fetch("/article", {
+    fetch("http://localhost:3030/article", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -15,7 +15,7 @@ function handleSubmit(event) {
       },
       body: JSON.stringify({ text: inputURL }),
     })
-      .then((res) => console.log(res.json()))
+      .then((res) => res.json())
       .then(function (res) {
         // print for debugging
         console.log(res);
